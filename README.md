@@ -2,8 +2,12 @@
 
 This repository contains our group's submissions for the KEN3170 course assignments on epidemiological modeling (SIR/SIRD models, parameter exploration, and disease dynamics analysis).
 
-**Group:** [Group number]
-**Members:** [Name 1], [Name 2], [Name 3], [Name 4]
+**Group:** 3
+**Members:** 
+Leonardo Cucinotta I6371506 
+Tjebbe Dasbach I6354372 
+Nikolai Datsenko I6365115
+Benjamin Davis I6361459
 
 ## Repository structure
 
