@@ -5,8 +5,11 @@ This repository contains our group's submissions for the KEN3170 course assignme
 **Group:** 3
 **Members:** 
 Leonardo Cucinotta I6371506 
+
 Tjebbe Dasbach I6354372 
+
 Nikolai Datsenko I6365115
+
 Benjamin Davis I6361459
 
 ## Repository structure
