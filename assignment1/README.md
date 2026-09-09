@@ -65,7 +65,8 @@ This resulted in an Output DataFrame (γ = 0.05–0.25):
 | 0.20 | 0.98 | 5.0           | 0.0      | 2.3          |
 | 0.25 | 0.78 | 5.0           | 0.0      | 0.5          |
 
-- Which scenario is worse for public health, and why
+- Which scenario is worse for public health, and why:
+
 High transmission is worse in almost every case. The only exception is when recovery rate and transmission rate are both low,
 the outbreak tends to last for longer, despite resulting in less death and infections. A longer outbreak might
 result in a longer lockdown, if the conditions are bad enough, regardless of the low transmission rate. Otherwise, total deaths,
