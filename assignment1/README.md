@@ -75,41 +75,52 @@ the number of peak infections and the duration of the outbreak are all greater w
 
 ---
 
-## 4. Part 3 — Policy recommendations
-4.1 Parameter impact analysis
+## 4. Part 3 — Policy Recommendations
 
-**How does increasing recovery rate affect peak infections, total deaths, and epidemic duration?**
+### 4.1 Parameter Impact Analysis
 
-Increasing the recovery rate strongly reduces the impact of the epidemic. In Scenario A, raising γ from 0.05 to 0.25 reduces the peak infectious population from about 520.6 to 63.1 and reduces total deaths by about 242. The peak also moves from day 21 to day 30, meaning that faster recovery both flattens the curve and delays the peak.
+> **How does increasing recovery rate affect peak infections, total deaths, and epidemic duration?**
 
-4.2 Intervention analysis
+Increasing the recovery rate strongly reduces the impact of the epidemic. In Scenario A, raising $\gamma$ from `0.05` to `0.25`:
+* Reduces the peak infectious population from about `520.6` to `63.1`
+* Reduces total deaths by about `242`
+* Moves the peak from **day 21** to **day 30**, meaning that faster recovery both flattens the curve and delays the peak.
 
-Using Scenario A with γ=0.10 as the baseline, a 50% improvement in recovery rate gives:
+---
 
-- Baseline recovery rate: γ = 0.10
-- Improved recovery rate: γ = 0.15
-- Baseline deaths: 159.9
-- Deaths with improved recovery: 102.6
-- Deaths prevented: 159.9 − 102.6 = 57.3
-- Percentage reduction: 57.3 / 159.9 × 100 ≈ 35.8%
-  
-The model therefore predicts that this 50% increase in γ would prevent around 57 deaths per 1,000 people in Scenario A over 200 days using the simulation. Peak infections also fall from around 340.1 to 213.5, a reduction of around 37.2%.
+### 4.2 Intervention Analysis
 
-4.3 Real-world application
+Using Scenario A with $\gamma = 0.10$ as the baseline, a **50% improvement** in recovery rate gives:
 
-Antiviral medication is a medical intervention and common treatment used to speed up recovery rates. They work by inhibiting a virus’s ability to replicate and can therefore shorten a patient's time to recover. An example of an antiviral medication would be Sofosbuvir, Sofosbuvir has a broad antiviral spectrum against many species of the Flaviviridae and Togaviridae families (including yellow fever, Zika, dengue, chikungunya, and hepatitis C viruses). According to the pooled meta-analysis of four randomized controlled trials (RCTs), a Sofosbuvir based regimen significantly increased clinical recovery rates by 20% compared to standard care or alternative treatment.
+| Parameter / Metric | Value |
+| :--- | :--- |
+| **Baseline recovery rate** | $\gamma = 0.10$ |
+| **Improved recovery rate** | $\gamma = 0.15$ |
+| **Baseline deaths** | `159.9` |
+| **Deaths with improved recovery** | `102.6` |
+| **Deaths prevented** | $159.9 - 102.6 =$ **`57.3`** |
+| **Percentage reduction** | $\frac{57.3}{159.9} \times 100 \approx$ **`35.8%`** |
 
-- Rate Ratio (RR): 1.20 (95% CI: 1.04–1.38).
+> The model therefore predicts that this 50% increase in $\gamma$ would prevent around **57 deaths per 1,000 people** in Scenario A over 200 days using the simulation. Peak infections also fall from around `340.1` to `213.5`, a reduction of around **37.2%**.
 
-- In individual trials, it also demonstrated:
+---
 
-- Lower mortality: RR 0.31 (95% CI: 0.12–0.78).
+### 4.3 Real-World Application
 
-- Fewer ICU admissions: RR 0.33 (95% CI: 0.15–0.72).
+Antiviral medication is a medical intervention and common treatment used to speed up recovery rates. They work by inhibiting a virus’s ability to replicate and can therefore shorten a patient's time to recover. 
 
-- Shorter hospital stays: Reduced from 8 to 6 days (p = 0.029) in moderate/severe COVID-19, and from 9 to 5 days (p < 0.01) compared to ribavirin in severe cases.
+An example of an antiviral medication would be **Sofosbuvir**. Sofosbuvir has a broad antiviral spectrum against many species of the *Flaviviridae* and *Togaviridae* families (including yellow fever, Zika, dengue, chikungunya, and hepatitis C viruses). According to the pooled meta-analysis of four randomized controlled trials (RCTs), a Sofosbuvir-based regimen significantly increased clinical recovery rates by **20%** compared to standard care or alternative treatment:
 
-Data from: Lai, C.-C., Chao, C.-M., & Hsueh, P.-R. (2021). Clinical efficacy of antiviral agents against coronavirus disease 2019: A systematic review of randomized controlled trials. Journal of Microbiology, Immunology and Infection, 54(5), 767–775. https://doi.org/10.1016/j.jmii.2021.05.011
+* **Rate Ratio (RR):** `1.20` (95% CI: 1.04–1.38)
+* **In individual trials, it also demonstrated:**
+  * **Lower mortality:** RR `0.31` (95% CI: 0.12–0.78)
+  * **Fewer ICU admissions:** RR `0.33` (95% CI: 0.15–0.72)
+  * **Shorter hospital stays:** 
+    * Reduced from 8 to 6 days ($p = 0.029$) in moderate/severe COVID-19
+    * Reduced from 9 to 5 days ($p < 0.01$) compared to ribavirin in severe cases
+
+---
+
 ---
 ## 5. Conclusions
 In summary, this report evaluated:
@@ -118,4 +129,6 @@ In summary, this report evaluated:
 - Scenario Modeling: A direct comparison between high and low transmission environments.
 - Policy & Intervention: Parameter impact assessments and the real-world application of a standard medical intervention.
 
+## 6. References
 
+Data from: Lai, C.-C., Chao, C.-M., & Hsueh, P.-R. (2021). Clinical efficacy of antiviral agents against coronavirus disease 2019: A systematic review of randomized controlled trials. Journal of Microbiology, Immunology and Infection, 54(5), 767–775. https://doi.org/10.1016/j.jmii.2021.05.011
