@@ -76,11 +76,14 @@ the number of peak infections and the duration of the outbreak are all greater w
 ---
 
 ## 4. Part 3 — Policy recommendations
-- 4.1 Parameter impact analysis
+4.1 Parameter impact analysis
+
 **How does increasing recovery rate affect peak infections, total deaths, and epidemic duration?**
 
 Increasing the recovery rate strongly reduces the impact of the epidemic. In Scenario A, raising γ from 0.05 to 0.25 reduces the peak infectious population from about 520.6 to 63.1 and reduces total deaths by about 242. The peak also moves from day 21 to day 30, meaning that faster recovery both flattens the curve and delays the peak.
-- 4.2 Intervention analysis
+
+4.2 Intervention analysis
+
 Using Scenario A with γ=0.10 as the baseline, a 50% improvement in recovery rate gives:
 
 - Baseline recovery rate: γ = 0.10
@@ -91,7 +94,9 @@ Using Scenario A with γ=0.10 as the baseline, a 50% improvement in recovery rat
 - Percentage reduction: 57.3 / 159.9 × 100 ≈ 35.8%
   
 The model therefore predicts that this 50% increase in γ would prevent around 57 deaths per 1,000 people in Scenario A over 200 days using the simulation. Peak infections also fall from around 340.1 to 213.5, a reduction of around 37.2%.
-- 4.3 Real-world application
+
+4.3 Real-world application
+
 Antiviral medication is a medical intervention and common treatment used to speed up recovery rates. They work by inhibiting a virus’s ability to replicate and can therefore shorten a patient's time to recover. An example of an antiviral medication would be Sofosbuvir, Sofosbuvir has a broad antiviral spectrum against many species of the Flaviviridae and Togaviridae families (including yellow fever, Zika, dengue, chikungunya, and hepatitis C viruses). According to the pooled meta-analysis of four randomized controlled trials (RCTs), a Sofosbuvir based regimen significantly increased clinical recovery rates by 20% compared to standard care or alternative treatment.
 
 - Rate Ratio (RR): 1.20 (95% CI: 1.04–1.38).
