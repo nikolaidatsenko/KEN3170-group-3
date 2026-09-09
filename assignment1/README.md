@@ -121,7 +121,6 @@ An example of an antiviral medication would be **Sofosbuvir**. Sofosbuvir has a 
 
 ---
 
----
 ## 5. Conclusions
 In summary, this report evaluated:
 
