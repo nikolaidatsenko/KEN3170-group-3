@@ -34,13 +34,13 @@ For part 1.2 and 1.3 we ran the gamma values (γ = 0.05–0.25), using the SIRD 
 - Simulation duration = 150 days
 
 This resulted in an Output DataFrame (γ = 0.05–0.25):
-	gamma	R0	peak_infected	peak_day	total_deaths
-0	0.05	6.0	 479.7	         26	    165.4
-1	0.10	3.0	 269.1	         27	    83.6
-2	0.15	2.0	 136.8	         30	    47.7
-3	0.20	1.5	 57.4	           33	    26.0
-4	0.25	1.2	 18.0	           30	    11.4
-
+| gamma | R0  | peak_infected | peak_day | total_deaths |
+|------:|----:|--------------:|---------:|-------------:|
+| 0.05  | 6.0 | 479.7         | 26       | 165.4        |
+| 0.10  | 3.0 | 269.1         | 27       | 83.6         |
+| 0.15  | 2.0 | 136.8         | 30       | 47.7         |
+| 0.20  | 1.5 | 57.4          | 33       | 26.0         |
+| 0.25  | 1.2 | 18.0          | 30       | 11.4         |
 ---
 
 ## 3. Part 2 — Scenario comparison
