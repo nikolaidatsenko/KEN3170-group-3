@@ -15,17 +15,16 @@
 ---
 ## 2. Part 1 — Parameter analysis function
 **Function**: `analyze_recovery_rates(beta, mu, N, I0, simulation_days)`
-For Part 1, We created a function called analyze_recovery_rates(). This function is uses the SIRD model we created during the practical. The function takes the same parameters when called as the SIRD function. Since the function has the calculate for a multitude of recovery rates, we created a for loop, where we for every recovery rate it runs the SIRD model, and calculates the following:
+In Part 1, we implemented analyze_recovery_rates() using the SIRD model developed earlier in the practical. The function accepts the same baseline parameters as the original model but evaluates a range of recovery rates (gamma). By looping through each gamma value, the function runs the simulation and records four key metrics:
 
 - Peak number of infectious individuals
 - Day on which the infection peak occurs
 - Total deaths at the end of the simulation
 - Basic reproduction number, R₀ = β / γ
 
-These are then stored and appended into results. 
-Since the function needs to generate plots of all the recovery rates of a simulation, the function then creates a plot displaying all the different epidemic curves. All data is then converted into a pandas dataframe.
+It then compiles these metrics into a pandas DataFrame and generates an epidemic curve comparison plot across all tested recovery rates.
 
-For part 1.2 and 1.3 we ran the gamma values (γ = 0.05–0.25), using the SIRD parameters from Part 3 of the practical:
+In Parts 1.2 and 1.3, we evaluated recovery rates from gamma = 0.05 to 0.25 using the parameter values established in Part 3 of the practical:
 
 - β = 0.3
 - μ = 0.01
