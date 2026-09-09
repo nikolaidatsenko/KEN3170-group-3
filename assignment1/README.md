@@ -57,3 +57,10 @@ This resulted in an Output DataFrame (γ = 0.05–0.25):
 ---
 
 ## 5. Conclusions
+In summary, this report evaluated:
+
+- Recovery Rate Dynamics: The impact of varying gamma parameters within an SIRD framework.
+- Scenario Modeling: A direct comparison between high and low transmission environments.
+- Policy & Intervention: Parameter impact assessments and the real-world application of a standard medical intervention.
+
+
