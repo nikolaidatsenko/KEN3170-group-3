@@ -13,9 +13,9 @@
 **How to run**: [e.g. `pip install -r requirements.txt` then open and run `analysis.ipynb` top to bottom]
 
 ---
-
+## 2. Part 1 — Parameter analysis function
 **Function**: `analyze_recovery_rates(beta, mu, N, I0, simulation_days)`
-- For Part 1, We created a function called analyze_recovery_rates(). This function is uses the SIRD model we created during the practical. The function takes the same parameters when called as the SIRD function. Since the function has the calculate for a multitude of recovery rates, we created a for loop, where we for every recovery rate it runs the SIRD model, and calculates the following:
+For Part 1, We created a function called analyze_recovery_rates(). This function is uses the SIRD model we created during the practical. The function takes the same parameters when called as the SIRD function. Since the function has the calculate for a multitude of recovery rates, we created a for loop, where we for every recovery rate it runs the SIRD model, and calculates the following:
 
 - Peak number of infectious individuals
 - Day on which the infection peak occurs
