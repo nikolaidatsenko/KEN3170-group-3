@@ -25,3 +25,26 @@ The 2 different values observed are zero and no data (ND).
 When a value is 0, it means that the reaction is present in the expression, however its maximal activity is 0. This is to show that the reaction has no available capacity.
 
 ## Q2: Establishing an enzyme activity-constrained metabolic model
+
+The table we get is:
+| Reaction | Lower bound | Upper bound |
+|----------|------------:|------------:|
+| PFK      | 0.0         | 13.1        |
+| PFL      | 0.0         | 0.0         |
+| PGI      | -11.1       | 11.1        |
+| PGK      | -24.0       | 24.0        |
+| PGL      | 0.0         | 7.3         |
+| ...      | ...         | ...         |
+| NADH16   | 0.0         | 40.1        |
+| NADTRHD  | 0.0         | 1.3         |
+| NH4t     | -1000.0     | 1000.0      |
+| O2t      | -1000.0     | 1000.0      |
+| PDH      | 0.0         | 26.6        |
+
+For the full table please see the .ipynb file.
+
+The ATPM line has the same lower bound as the practical and is: 
+ATPM         8.39      1000.00
+
+The EX_glc__D_e line reads as, using the default bounds from the practical: 
+EX_glc__D_e     -1000.00      1000.00
