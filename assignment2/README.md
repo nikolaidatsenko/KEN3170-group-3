@@ -9,6 +9,7 @@
 - `metabolic_analysis.ipynb` — main notebook containing all required code +answers
 - `requirements.txt` — Python dependencies (cobra, pandas, csv)
 - `README.md` — this file
+- `figures` — containing plots displayed in this readme file
 
 **How to run**: [e.g. `pip install -r requirements.txt` then open and run `metabolic_analysis.ipynb` top to bottom]
 
