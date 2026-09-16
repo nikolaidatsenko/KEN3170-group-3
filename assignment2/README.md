@@ -9,6 +9,7 @@
 - `metabolic_analysis.ipynb` — main notebook containing all required code +answers
 - `README.md` — this file
 - `figures` — containing plots displayed in this readme file
+- `KEN3170_Assignment_2026_e_coli_core_expression.csv` — e coli core expression csv
 
 **How to run**: [e.g. `pip install -r requirements.txt` then open and run `metabolic_analysis.ipynb` top to bottom]
 
