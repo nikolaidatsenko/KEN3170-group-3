@@ -12,7 +12,6 @@
 - `KEN3170_Assignment_2026_e_coli_core_expression.csv` — e coli core expression csv
 - `e_coli_core.json` — e coli core json
 
-**How to run**: [e.g. `pip install -r requirements.txt` then open and run `metabolic_analysis.ipynb` top to bottom]
 
 ---
 ## Q1: Flux Balance Analysis
