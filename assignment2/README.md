@@ -7,7 +7,6 @@
 
 ## Repository overview
 - `metabolic_analysis.ipynb` — main notebook containing all required code +answers
-- `requirements.txt` — Python dependencies (cobra, pandas, csv)
 - `README.md` — this file
 - `figures` — containing plots displayed in this readme file
 
