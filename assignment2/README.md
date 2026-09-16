@@ -91,7 +91,6 @@ Newly active exchange reaction(s): {'EX_ac_e': np.float64(0.05367170526640648)}
 
 No, it maxes out at around 11 mmol/(gDW·h) of glucose intake. The biomass production rate increases linearly as glucose intake goes from 1 until around 9, when an increase in glucose results in a proportionally lower increase in biomass production rate. The relationship is still linear, but the slope is smaller in the interval around 9 to 11. Then at 11 there is a plateau as mentioned.
 
-This is likely due to bottlenecks in the metabolic pathway. By looking at Escher, I...
 
 ### Part C
 
