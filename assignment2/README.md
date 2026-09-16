@@ -1,4 +1,4 @@
-# Metabolic Modeling Assignment
+# Metabolic Modeling Assignment 2
 
 **Course**: KEN3170 — Multi-scale modeling of biological systems
 **Group number**: 3
