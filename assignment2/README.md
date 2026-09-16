@@ -53,14 +53,6 @@ EX_glc__D_e     -1000.00      1000.00
 
 a.)
 
-```notebook-python
-# carry out Flux Balance Analysis (FBA)
-solution = model.optimize()
-
-# report maximal biomass production rate
-print(f"Maximal Biomass Production Rate: {solution.objective_value:.4f} mmol/gDW/h")
-```
-
 ```
 Maximal Biomass Production Rate: 0.8733 mmol/gDW/h
 ```
@@ -69,22 +61,7 @@ Maximal Biomass Production Rate: 0.8733 mmol/gDW/h
 
 Setting an absolute flux bound of 5 mmol/gDW/h on the glucose exchange reaction (EX_glc__D_e) restricts the rate at which the cell can take up external glucose. This specific constraint models factors such as nutrient availability and transporter capacity. In contrast, gene expression constraints limit how fast internal enzymes can work based on how much of each protein is available inside the cell, rather than focusing on outside nutrients.
 
-```notebook-python
-# re-establish absolute flux bound on EX_glc__D_e
-glucose = model.reactions.get_by_id("EX_glc__D_e")
-glucose.lower_bound = -5.0
-glucose.upper_bound = 5.0
-```
-
 b.)
-
-```notebook-python
-# carry out FBA on new glucose bounds
-solution = model.optimize()
-
-# report new maximal biomass production rate
-print(f"Maximal Biomass Production Rate: {solution.objective_value:.4f} mmol/gDW/h")
-```
 
 ```
 Maximal Biomass Production Rate: 0.4156 mmol/gDW/h
