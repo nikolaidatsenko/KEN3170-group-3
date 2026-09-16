@@ -48,3 +48,48 @@ ATPM         8.39      1000.00
 
 The EX_glc__D_e line reads as, using the default bounds from the practical: 
 EX_glc__D_e     -1000.00      1000.00
+
+## Q3: Flux Balance Analysis under glucose uptake constraints
+
+a.)
+
+```notebook-python
+# carry out Flux Balance Analysis (FBA)
+solution = model.optimize()
+
+# report maximal biomass production rate
+print(f"Maximal Biomass Production Rate: {solution.objective_value:.4f} mmol/gDW/h")
+```
+
+```
+Maximal Biomass Production Rate: 0.8733 mmol/gDW/h
+```
+
+**Explain what this constraint would describe in contrast to the expression-based constraints implemented in the rest of the model.**
+
+Setting an absolute flux bound of 5 mmol/gDW/h on the glucose exchange reaction (EX_glc__D_e) restricts the rate at which the cell can take up external glucose. This specific constraint models factors such as nutrient availability and transporter capacity. In contrast, gene expression constraints limit how fast internal enzymes can work based on how much of each protein is available inside the cell, rather than focusing on outside nutrients.
+
+```notebook-python
+# re-establish absolute flux bound on EX_glc__D_e
+glucose = model.reactions.get_by_id("EX_glc__D_e")
+glucose.lower_bound = -5.0
+glucose.upper_bound = 5.0
+```
+
+b.)
+
+```notebook-python
+# carry out FBA on new glucose bounds
+solution = model.optimize()
+
+# report new maximal biomass production rate
+print(f"Maximal Biomass Production Rate: {solution.objective_value:.4f} mmol/gDW/h")
+```
+
+```
+Maximal Biomass Production Rate: 0.4156 mmol/gDW/h
+```
+
+**Using the new glucose bounds, explain any differences you observe in the predicted maximal biomass production rate.**
+
+The biomass rate dropped from 0.8733 mmol/gDW/h to 0.4156 mmol/gDW/h. This is because tightening the glucose upper limit to 5 mmol/gDW/h restricted the cell's carbon and energy supply. This shows that glucose was the limiting nutrient, as the lower external supply was directly bottlenecking the maximal growth rate.
