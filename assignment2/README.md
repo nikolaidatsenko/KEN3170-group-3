@@ -104,7 +104,7 @@ Newly active exchange reaction(s): {'EX_ac_e': np.float64(0.053671705266407514)}
 
 ### Bonus
 
-Changing the glucose secretion bound (`upper_bound`) never changes the maximal biomass rate. The reason is that the optimiser will never pick a solution that secretes glucose, because doing so is suboptimal — so increasing the upper bound has no effect on the output.
+Changing the glucose secretion bound (`upper_bound`) never changes the maximal biomass rate. The reason is that the optimiser will never pick a solution that secretes glucose, because doing so is suboptimal, so increasing the upper bound has no effect on the output.
 
 A heatmap of biomass production as a function of both the glucose uptake bound (`|lower_bound|`) and the glucose secretion bound (`upper_bound`), varied independently, confirms this: biomass depends only on the uptake magnitude (x-axis) and is completely flat along the secretion-bound axis (y-axis).
 
