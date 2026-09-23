@@ -1,4 +1,3 @@
-```markdown
 # Cancer-causing Mutations Analysis
 
 **Group**: Group 3
@@ -25,5 +24,3 @@ This notebook contains the analysis of a simplified cell regulatory Boolean netw
 *   **Limitation 2**: 
 
 *   **Limitation 3**: 
-
-```
