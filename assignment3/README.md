@@ -19,7 +19,7 @@ This notebook contains the analysis of a simplified cell regulatory Boolean netw
 ### 3. What are the limitations of this Boolean network model? Discuss 3 specific limitations.
 
 **Answer**:
-*   **Limitation 1: Nodes can only be ON or OFF  **: 
+*   **Limitation 1: Nodes can only be ON or OFF**: 
 
 Since we are using a boolean model, every molecule is represented as a 0 or 1, Real molecules, can have much more than just 2 expressions, or activity levels. for example p53 activity could have a different effect that than a large amount at yet in the model they would have the same value and be represented as p53 = 1. The model cannot represent gradual changes, thresholds, or other representations that might be possible due to it have a boolean value. 
 
