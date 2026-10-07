@@ -18,11 +18,11 @@
 
 | Time | Observation |
 | :--- | :--- |
-| **Initial** | From observation alone, there are two distinct shades of plant tissue and some kind of cell emerging from the left side. |
-| **30 min** | The red cell on the left has now started to infect the healthy plant tissue (cyan). The healthy plant tissue is now turning a light purple-ish hue. The red cell has not moved/is the same size compared to initial observations. |
-| **1 hr** | The infection from the red cell has now mostly spread to the sides of the tissue sample. As the red cell moves its way into the tissue, it manipulates and distorts the cell walls of the plant tissue. |
-| **1 hr 30 min** | The red cell is now pushing deeper into the tissue. More of the healthy tissue is being infected by the red cell, with the cell walls being distorted as the red cell pushes its way forward. |
-| **2 hr** | The red cell continues to grow in size. The result of this growth is causing more distortions in the cell walls, and at the same time, more healthy tissue is being infected. |
+| **Initial** | From observation alone, there are two distinct shades of plant tissue and some kind of cell emerging from the left side. Most cell walls are straight lines. |
+| **30 min** | The red cell on the left has now started to infect the healthy plant tissue (cyan). The healthy plant tissue surrounding the infection source is now turning a light purple-ish hue. The red cell has not moved/is the same size compared to initial observations. All cells have deformed, not just the infiltrated ones, including the cells farthest from the infiltrated one that have not changed in colour. Most cell walls are not straight anymore. The total surface area of each cell looks to be roughly unchanged. The defortmities do not seem to expand radially outward from the infection source as might a shockwave, nor as a projectile-induced deformity. Rather the defortmities appear to be quite haphazard. The green xylem cells remain unchanged. |
+| **1 hr** | The infection from the red cell has now mostly spread all the way to the sides of the tissue sample and infecting cells up to the 3rd layer. As the red cell moves its way into the tissue, it manipulates and distorts the cell walls of the plant tissue. The change between 0-30min is more drastic than between and 30-60min. The cells in direct contact with the infection source do not seem to be significantly smaller, though the infecting body takes up some space. The green xylem cells remain unchanged. |
+| **1 hr 30 min** | The red cell is now pushing deeper into the tissue. More of the healthy tissue is being infected by the red cell, with the cell walls being distorted as the red cell pushes its way forward. The red infecting body has grown visibly larger now, it seems to have about doubled in size since the first frame. Despite this, it's hard to say if the cells directly in contact with the infecting body have shrunk in size. The infection seems to be contained to the third layer, the 4th layer seems largely unaffected, despite the third layer having solid purple colour. The green xylem cells remain unchanged.  |
+| **2 hr** | The red cell continues to grow in size. The result of this growth is causing more distortions in the cell walls, and at the same time, more healthy tissue is being infected. The red infecting body has further increased in size. The cells directly touching the infecting body seem to have gotten smaller. The first cell in the 4th layer has now turned blueish, the centremost cell closest to the infection source. The green xylem cells remain unchanged. |
 
 ## Q2 — Function Analysis: `CellHouseKeeping`
 
@@ -34,11 +34,15 @@ Based on the code snippet, because the chemical level is capped at **1.2**, the 
 
 `stiffness_inf = 3 - (patho_chem_level)`
 
-Low stiffness implies low wall rigidity, which from our observed screenshots, is why the walls stretch and distort with respect to the pathogen's position. 
+One might be tempted to think that low wall stiffness causes the walls stretch and distort, but this is not so. Low wall stiffness merely enables the distortion but does not cause it. The reason is that neighbouring cells that still have high wall rigidity do not push against weaker walls, precisely because they are rigid and cannot deform much.
+The target area of the cells remains constant through the entire simulation, meaning all cells tend to maintain the same area through the entire simulation. Only the pathogen body changes its target area and grows. 
+So while low wall stiffness enables deformation, it is only the infiltrating body that causes deformations as it takes up more space inside the cell and cells have to deform to make room for it, though the Hamiltonian term pushes back. Both turgor and wall stiffness play a role.  
 
 ### What does the pathogen do differently?
 
-The pathogen differs from the regular plant cells because the code runs a check to see if it is Type 2. While it makes the surrounding cell walls weak and distorts them, the pathogen itself stays rigid. Because the pathogen remains rigid, with the ability to grow and split, it is able to consistently push into the plant tissue, spreading the infection further in the process. 
+The pathogen differs from the regular plant cells because the code runs a check to see if it is Type 2. The pathogen is the source of the wall-weakening chemical, which is produced at a constant rate that depends on the initial chemical level. 
+The pathogen itself is excluded from wall weakening. Because the pathogen remains rigid, with the ability to grow and split, it is able to consistently push into the plant tissue, whose wall is now weaker.
+The infecting body's target area increases by 2 every step, unconditionally. That means that, if the Hamiltonian of the surrounding cells allows, the pathogen will keep increasing forever.
 
 ## Q3 — Function Analysis: `CellToCellTransport`
 
@@ -62,6 +66,34 @@ As defined in the function `CellToCellTransport`, this diffusion rate is directl
 The loop can be described as: **chemical lowers stiffness** --> **lower stiffness raises diffusion** --> **faster diffusion spreads the chemical**
 
 This creates a **positive feedback loop**. Instead of stabilizing/counteracting the change, the increase in chemical levels triggers physical changes that amplify the spread of more chemicals through the tissue.
+
+## Q4 — Effect of `rel_cell_div_threshold` on pathogen expansion
+
+> Raise and lower `rel_cell_div_threshold`. How does it change how fast the pathogen population expands? Document two runs.
+
+| `rel_cell_div_threshold` | 0 | 60 | 120 | 180 | 240 | 300 | 360 | 420 | 480 | 540 | 600 | 660 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **2** | 1 | 1 | 1 | 2 | 2 | 4 | 8 | 8 | 16 | 16 | 16 | 32 |
+| **3** | 1 | 1 | 1 | 1 | 2 | 2 | 2 | 4 | 4 | 8 | 8 | 8 |
+| **4** | 1 | 1 | 1 | 1 | 1 | 2 | 2 | 2 | 2 | 4 | 4 | 4 |
+| **5** | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 2 | 2 | 2 | 2 | 4 |
+
+![Pathogen population growth for different rel_cell_div_threshold values](pathogen_growth_threshold.png)
+
+## Q5 — What is a fundamental difference regarding cell neighbours in this model compared to all other models that you have worked with so far?
+
+The cells at the edge have no give; they are absolutely fixed, and the plant cells likewise do not yield. The cells also seem to not have any sort of defence mechanism other than their pressure pushing back.
+
+## Q6 — The plant evolves a defense: cells above a chemical threshold stiffen their walls. Describe in pseudocode where in `CellHouseKeeping` this would go and what sign of feedback it adds. Do not implement it. Pseudocode for the different sections is enough!
+
+It would go in the cell wall weakening section as labelled in the code, perhaps using `max(chem_level, some_threshold)` for the `stiffness_inf` calculation to place a limit to the weakening due to the chemical. Any other function would work, perhaps a function that slows down the rate of weakening, like $3 - x\left(1 - e^{-\left(\frac{x - 0.4}{0.3}\right)^2}\right)$, as a temporary countermeasure which stops functioning eventually once the chemical concentration is too high.
+
+```cpp
+double bump = exp(-pow((patho_chem_level - 0.4) / 0.3, 2));
+stiffness_inf = 3 - patho_chem_level * (1 - bump);
+set every wall element of c to stiffness_inf
+```
+
 
 
 
