@@ -80,6 +80,8 @@ This creates a **positive feedback loop**. Instead of stabilizing/counteracting 
 
 ![Pathogen population growth for different rel_cell_div_threshold values](pathogen_growth_threshold.png)
 
+When `rel_cell_div_threshold` is lowered, the pathogen population expands faster. This is because the pathogen needs to grow less before reaching the condition required for cell division. Therefore, division occurs earlier and more frequently, as apposed to a higher `rel_cell_div_threshold`. For example, with a threshold of 2, the pathogen population reaches 32 cells by minute 660, whereas with a threshold of 5, only 4 cells are present at the same time. Increasing the threshold therefore delays each division and slows the overall growth of the pathogen population.
+
 ## Q5 — What is a fundamental difference regarding cell neighbours in this model compared to all other models that you have worked with so far?
 
 The cells at the edge have no give; they are absolutely fixed, and the plant cells likewise do not yield. The cells also seem to not have any sort of defence mechanism other than their pressure pushing back.
