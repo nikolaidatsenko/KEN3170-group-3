@@ -91,14 +91,39 @@ In the previous models, a cell's neighbours were mostly fixed and only changed w
 
 ## Q6 — The plant evolves a defense: cells above a chemical threshold stiffen their walls. Describe in pseudocode where in `CellHouseKeeping` this would go and what sign of feedback it adds. Do not implement it. Pseudocode for the different sections is enough!
 
-It would go in the cell wall weakening section as labelled in the code, perhaps using `max(chem_level, some_threshold)` for the `stiffness_inf` calculation to place a limit to the weakening due to the chemical. Any other function would work, perhaps a function that slows down the rate of weakening, like $3 - x\left(1 - e^{-\left(\frac{x - 0.4}{0.3}\right)^2}\right)$, as a temporary countermeasure which stops functioning eventually once the chemical concentration is too high.
+**Plant defense**
 
-```cpp
-double bump = exp(-pow((patho_chem_level - 0.4) / 0.3, 2));
-stiffness_inf = 3 - patho_chem_level * (1 - bump);
-set every wall element of c to stiffness_inf
+The defense would be added in `CellHouseKeeping` , in the same section where the wall weakening currently happens.
+
+```ccp
+// defence
+if cell is not a pathogen:
+
+    if patho_chem_level > defense_threshold:
+        // defense response
+        increase stiffness above the normal value
+        SetCellVeto(true)
+
+    else if patho_chem_level > 0.1:
+        // weakening response
+        stiffness = 3 - patho_chem_level
+        SetCellVeto(false)
+
+    else:
+        stiffness = 3
+        SetCellVeto(true)
+
+apply stiffness to all wall elements
 ```
 
+
+The pseudo code would be added patho_chem_level is calculated and stiffness is set to 3.
+
+In the original model: more chemical → lower stiffness → higher diffusion → faster chemical spread
+
+With the defense, once the chemical concentration becomes high enough: more chemical → higher stiffness → lower diffusion → slower chemical spread
+
+This opposes the spread of the pathogen chemical. `SetCellVeto(true)` would also prevent wall remodelling in defended cells.
 
 
 
