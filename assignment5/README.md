@@ -91,7 +91,7 @@ In the previous models, a cell's neighbours were mostly fixed and only changed w
 
 ## Q6 — The plant evolves a defense: cells above a chemical threshold stiffen their walls. Describe in pseudocode where in `CellHouseKeeping` this would go and what sign of feedback it adds. Do not implement it. Pseudocode for the different sections is enough!
 
-**Plant defense**
+
 
 The defense would be added in `CellHouseKeeping` , in the same section where the wall weakening currently happens.
 
@@ -118,7 +118,7 @@ apply stiffness to all wall elements
 ```
 
 
-The pseudo code would be added patho_chem_level is calculated and stiffness is set to 3.
+The pseudo code would be added after  patho_chem_level is calculated and stiffness is set to 3.
 
 In the original model: more chemical → lower stiffness → higher diffusion → faster chemical spread
 
