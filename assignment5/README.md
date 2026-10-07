@@ -97,6 +97,7 @@ The defense would be added in `CellHouseKeeping` , in the same section where the
 
 ```ccp
 // defence
+defence_threshold = chosen defence threshold
 if cell is not a pathogen:
 
     if patho_chem_level > defense_threshold:
@@ -123,7 +124,7 @@ In the original model: more chemical → lower stiffness → higher diffusion �
 
 With the defense, once the chemical concentration becomes high enough: more chemical → higher stiffness → lower diffusion → slower chemical spread
 
-This opposes the spread of the pathogen chemical. `SetCellVeto(true)` would also prevent wall remodelling in defended cells.
+This opposes the spread of the pathogen chemical, adding negative feedback. `SetCellVeto(true)` would also prevent wall remodelling in defended cells.
 
 
 
