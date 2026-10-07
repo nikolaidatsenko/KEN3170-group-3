@@ -23,7 +23,7 @@ Each assignment lives in its own folder, with its own README documenting that sp
 | [`assignment1/`](./assignment1) | Recovery rate investigation (SIRD model, parameter analysis) | Completed |
 | [`assignment2/`](./assignment2) | Recovery rate investigation (Metabolic Modeling) | Completed |
 | [`assignment3/`](./assignment3) | Cancer-causing Mutations Analysis (Boolean Model)| Completed |
-| [`assignment4/`](./assignment4) |  | 🔄 In progress |
+| [`assignment5/`](./assignment5) | Plant Tissue Simulations (Plant cell modeling VirtualLeaf2021) | Completed |
 
 
 > This table and structure will be updated as each assignment is completed and new folders are added.
