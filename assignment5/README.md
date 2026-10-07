@@ -84,7 +84,10 @@ When `rel_cell_div_threshold` is lowered, the pathogen population expands faster
 
 ## Q5 — What is a fundamental difference regarding cell neighbours in this model compared to all other models that you have worked with so far?
 
-The cells at the edge have no give; they are absolutely fixed, and the plant cells likewise do not yield. The cells also seem to not have any sort of defence mechanism other than their pressure pushing back.
+
+In the previous models, a cell's neighbours were mostly fixed and only changed when a cell divided. In this infection model, however, the neighbour relationships can change during the simulation. The main difference is that cell topology is dynamic in this model: infection can cause cells to gain or lose neighbours through wall remodelling, rather than neighbour changes only occurring through cell division. This is simulated by changing `SetCellVeto()` to False, which allows the weakened, lower-stiffness walls to be remodelled, allowing the pathogen to get through the tissue and gain new neighbours.
+
+
 
 ## Q6 — The plant evolves a defense: cells above a chemical threshold stiffen their walls. Describe in pseudocode where in `CellHouseKeeping` this would go and what sign of feedback it adds. Do not implement it. Pseudocode for the different sections is enough!
 
